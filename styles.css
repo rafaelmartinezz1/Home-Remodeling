@@ -842,27 +842,24 @@ body {
     transform: translateY(0); /* Restore original position */
 }
 
-#about-content {
-    display: block;
-    padding: 20px; /* Adds some space inside the section */
-    max-width: 800px; /* Set a maximum width for the text */
+.about-section {
+    width: 100%; /* Section spans full width for clean background */
+    padding: 40px 20px; /* Vertical and horizontal padding */
+    text-align: center; /* Center-align titles or headings, but not text */
+}
+
+.about-section .container {
+    max-width: 800px; /* Limit the content width */
     margin: 0 auto; /* Center the content horizontally */
-    text-align: left; /* Ensure the text is aligned to the left (optional) */
-    padding: 10px; /* Add some padding inside for a clean look */
+    text-align: justify; /* Justify text for cleaner paragraphs */
+    padding: 0; /* Remove extra padding around the container */
+    color: #555;
 }
 
-#about-content p {
-    
-    padding: 20px;
-    max-width: 800px;
-    display: block;
-    margin: 0 auto;
-    text-align: justify;
-}
-
-#about-content .container {
-    max-width: 800px; /* Limit content width */
-    margin: 0 auto; /* Center the container horizontally */
-    text-align: left;
-    padding: 0 20px; /* Add some horizontal padding inside container */
+.about-section p {
+    font-size: 1rem; /* Match font size across page */
+    line-height: 1.8; /* Add proper spacing between lines */
+    margin-bottom: 1.5rem; /* Add spacing between paragraphs */
+    font-family: 'Roboto', sans-serif; /* Keep typography consistent */
+    color: inherit;
 }
