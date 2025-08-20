@@ -9,7 +9,15 @@ body {
     line-height: 1.6;
     color: white;
     background-color: #fafafa;
+    overflow-x: hidden;
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* This ensures padding and borders don't affect width */
+}
+
 
 /* Header Styling */
 .header {
@@ -92,6 +100,124 @@ body {
 .nav-menu a:hover {
     color: #007BFF; 
 }
+
+.logo-container {
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 60px; /* Ajusta la altura según tus necesidades */
+    width: auto; /* Mantiene la proporción */
+}
+
+
+.mobile-header {
+    position: fixed; /* Posición fija */
+    top: 0; /* Alinear al principio */
+    left: 0; /* Alinear a la izquierda */
+    width: 100%; /* Ancho completo */
+    background-color: #fff; /* Color de fondo */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra */
+    padding: 5px 10px; /* Menos espaciado */
+    z-index: 1000; /* Encima de otros elementos */
+    display: flex; /* Usar flexbox */
+    justify-content: space-between; /* Espastar elementos */
+    align-items: center; /* Centrar verticalmente */
+    height: 50px; /* Altura fija */
+    display: none; /* Ocultar por defecto en desktop */
+    
+}
+
+
+.header-button {
+    background-color: #007bff00; /* Color del botón */
+    color: white; /* Color del texto */
+    padding: 5px 10px; /* Espaciado del botón */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s; /* Transición al pasar el cursor */
+}
+
+.header-button:hover {
+    background-color: #0057b300; /* Color más oscuro al pasar el cursor */
+}
+
+/* Show header only on mobile devices */
+@media (max-width: 768px) {
+     .header {
+        display: none; /* Hide desktop header on mobile */
+    }
+     .hero {
+        display: none; /* Ocultar el Hero Section en dispositivos con un ancho de pantalla menor a 768px */
+    }
+    .hero-section {
+        display: none; /* Ocultar el Hero Section en dispositivos con un ancho de pantalla menor a 768px */
+    }
+    
+   
+    .mobile-header {
+        display: flex; /* Show on mobile */
+    }
+
+    .logo {
+        height: 40px; /* Reduce the height for mobile */
+        width: auto; /* Maintain aspect ratio */
+        margin-left: -18px; /* Adjust margin for proper alignment */
+    }
+}
+
+/* Hamburger Menu Styling */
+.hamburger-menu {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333; /* Adjust color as needed */
+}
+
+/* Mobile Navigation */
+.mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 50px; /* Below the header */
+    left: 0;
+    width: 100%;
+    background: white; /* Background color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    padding: 20px;
+    z-index: 999; /* Ensure it appears above other elements */
+}
+
+.mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.mobile-menu li {
+    margin: 10px 0;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333; /* Adjust the text color */
+    transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+    color: #007BFF;
+}
+
+/* Show the mobile menu when active */
+.mobile-menu.active {
+    display: block; /* Override to make it visible */
+}
+
+
 
 /* Hero Section Styling with Parallax */
 .hero {
@@ -339,70 +465,22 @@ body {
     }
 }
 
-
-
-.social-icons {
-    margin-top: 15px;
+.social-icons img {
+    width: 24px; /* Reduce the size (change to your liking: 24px, 20px, etc.) */
+    height: 24px; /* Ensure proportional size */
+    margin: 0 20px; /* Reduce spacing between the icons */
+    margin-top: 20px;
+    transition: transform 0.2s ease-in-out; /* Smooth hover effect */
 }
 
-.icon-link {
-    margin: 0 8px;
-    display: inline-block;
-}
-
-.icon-link img {
-    width: 40px; /* Square size for icons */
-    height: 40px;
-    object-fit: cover;
-    border-radius: 5px; /* Optional: rounded corners */
-    transition: transform 0.3s ease;
-}
-
-.icon-link:hover img {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+.social-icons img:hover {
+    transform: scale(1.1); /* Slight zoom-in hover effect */
 }
 
 
-/* Style all font awesome icons */
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-}
 
-/* Add a hover effect if you want */
-.fa:hover {
-  opacity: 0.7;
-}
 
-/* Set a specific color for each brand */
 
-/* Facebook */
-.fa-facebook {
-  background: #3B5998;
-  color: white;
-}
-
-/* Instagram */
-.fa-instagram {
-  background: #E4405F; /* Color de Instagram */
-  color: white;
-}
-
-/* Instagram */
-.fa-youtube {
-    background: #FF0000; /* Official YouTube red */
-
-  color: white;
-}
-
-/* Instagram */
-.fa-google {
-  background: #4285F4; /* Official Google blue */
-  color: white;
-}
 
 /* Vision Section Styling */
 .vision-section {
@@ -523,18 +601,7 @@ body {
 
 
 
-.logo-container {
-    display: flex; /* Activa flexbox */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    height: 100vh; /* Ajusta según el alto de tu diseño */
-    padding: 0 15px; 
-}
 
-.logo {
-    height: 60px; /* Ajusta la altura según tus necesidades */
-    width: auto; /* Mantiene la proporción */
-}
 
 .kitchen-section .right-square {
     background-color: #002F5B; /* Azul oscuro profundo */
@@ -682,6 +749,8 @@ body {
 /* Social Media Icons */
 .social-icons {
     margin-top: 10px; /* Space above icons */
+    z-index: 5;
+    position: relative;
 }
 
 .social-icons a {
@@ -862,4 +931,65 @@ body {
     margin-bottom: 1.5rem; /* Add spacing between paragraphs */
     font-family: 'Roboto', sans-serif; /* Keep typography consistent */
     color: inherit;
+}
+
+.contact-buttons {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .contact-buttons {
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        position: fixed;
+        left: 0;
+        width: 100%;
+        bottom: 0;
+        background: #fff;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        z-index: 10;
+    }
+
+    .contact-button {
+        background-color: #fff;
+        color: rgb(121, 102, 102);
+        padding: 10px 15px;
+        
+        border-radius: 5px;
+        text-decoration: none;
+        text-align: center;
+        flex: 1;
+        margin: 0 5px;
+        font-size: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contact-button i {
+        display: inline-block; /* Ensure the icon is rendered */
+
+        margin-right: 8px;
+        font-size: 18px;
+    }
+
+    .contact-button:hover {
+        background-color: #fff;
+    }
+}
+
+.footer-spacer {
+    height: 80px; /* Match the height of the contact buttons */
+    background: transparent; /* Ensure it doesn't stand out */
+    width: 100%; /* Full width */
+}
+
+
+@media (max-width: 768px) {
+    .footer-spacer {
+        height: 100px; /* Increase to ensure proper spacing */
+    }
+    
+    
 }

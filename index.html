@@ -3,12 +3,17 @@
 <head>
     <title>Eagles GC - Home Renovation</title>
     <meta charset="UTF-8">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
     <link rel="stylesheet" href="styles.css"> 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    
 </head>
 <body>
     <main>
@@ -21,14 +26,41 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#about">Reviews</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#contact">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact">Social Media</a></li>
+                    <li><a href="#about-content">About</a></li>
+                    <li><a href="#footer-address">Contact</a></li>
+                    <li><a href="#footer-social">Social Media</a></li>
                 </ul>
             </nav>
+            
+            
+
         </header>
+        <div class="mobile-header">
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo" />
+            </div>
+            <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+                &#9776; <!-- Hamburger icon -->
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="mobile-menu" id="mobile-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-content">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#footer-address">Contact</a></li>
+                <li><a href="#footer-social">Social Media</a></li>
+            </ul>
+        </div>
+
+
 
         <section class="hero">
             <div class="hero-section">
@@ -39,6 +71,8 @@
 
            
         </section>
+
+        
 
         <section class="section-header" id="services">
             <h1>Services</h1>
@@ -118,7 +152,7 @@
                     <div class="swiper-slide"><img src="image15.jpeg" alt="Gallery Image 3"></div>
                     <div class="swiper-slide"><img src="image16.jpeg" alt="Gallery Image 4"></div>
                     <div class="swiper-slide"><img src="image17.jpeg" alt="Gallery Image 5"></div>
-                    <div class="swiper-slide"><img src="image18.jpeg" alt="Gallery Image 5"></div>
+                    <div class="swiper-slide"><img src="image18.jpg" alt="Gallery Image 5"></div>
                     <div class="swiper-slide"><img src="image19.jpeg" alt="Gallery Image 1"></div>
                     <div class="swiper-slide"><img src="image20.jpeg" alt="Gallery Image 2"></div>
                     
@@ -187,23 +221,24 @@
                 
             </div>
         </section>
-
         
         
        <footer class="footer">
             <div class="footer-container">
-                <div class="footer-address">
+                <div class="footer-address" id="footer-address">
                     <p>1641 Titan St Philadelphia, PA, United States, Pennsylvania</p>
                     <p>(267) 881-2013</p>
                     
                 </div>
-                <div class="social-icons">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                    <a href="#" class="fa fa-youtube"></a>
-                    <a href="#" class="fa fa-google"></a>
+                <div class="social-icons" id="footer-social">
+                    <a href="https://facebook.com" target="_blank"><img src="images/icons/facebook.png" alt="Facebook Logo"></a>
+                    <a href="https://instagram.com" target="_blank"><img src="images/icons/instagram.png" alt="Instagram Logo"></a>
+                    <a href="https://youtube.com" target="_blank"><img src="images/icons/youtube.png" alt="YouTube Logo"></a>
+                    <a href="https://google.com" target="_blank"><img src="images/icons/google.png" alt="Google Logo"></a>
                 </div>
             </div>
+            <!-- Add this spacer -->
+            <div class="footer-spacer"></div>
         </footer>
 
         
@@ -216,6 +251,16 @@
         
 
     </main>
+
+    <div class="contact-buttons">
+        <a href="tel:+1234567890" class="contact-button">
+            <i class="fa fa-phone"></i> Call
+        </a>
+        <a href="sms:+1234567890" class="contact-button">
+            <i class="fa fa-comment"></i> Text
+        </a>
+    </div>
+
     
 
     <script>
@@ -229,7 +274,29 @@
     });
     </script>
 
-    
+    <script>
+        // JavaScript for Hamburger Menu Toggle
+        const hamburgerMenu = document.getElementById('hamburger-menu'); // Hamburger button
+        const mobileMenu = document.getElementById('mobile-menu');       // Mobile menu
+
+        // Toggle the mobile menu visibility
+        hamburgerMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active'); // Toggle the 'active' class
+        });
+
+        // Step 1: Select all links inside the mobile menu
+        const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+
+        // Step 2: Add an event listener to each link
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                // Step 3: Remove the 'active' class from the mobile menu
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+
+  
     
 
     
@@ -265,6 +332,7 @@
         window.addEventListener('resize', revealOnScroll);
         window.addEventListener('DOMContentLoaded', revealOnScroll);
     </script>
+
     <script>// Select all gallery images
         // Select all gallery images
         const galleryImages = document.querySelectorAll('.swiper-slide img');
@@ -410,8 +478,8 @@
         };
 
         // Event listeners for scroll and initial page load
-        window.addEventListener('scroll', revealOnScroll);
-        window.addEventListener('DOMContentLoaded', revealOnScroll);
+        window.addEventListener('scroll', revealOnce);
+        window.addEventListener('DOMContentLoaded', revealOnce);
     </script>
     <!--
     <script>// JavaScript for Advanced Parallax Scrolling Effect
@@ -421,6 +489,11 @@
             hero.style.backgroundPosition = `center ${scrollPosition * 0.5}px`; // Adjust the background position
         });
     </script>-->
+
+    <div class="contact-buttons">
+        <a href="tel:+1234567890" class="contact-button">Call</a>
+        <a href="sms:+1234567890" class="contact-button">Text</a>
+    </div>
     
 
     
